@@ -1,0 +1,123 @@
+body {
+  background: none !important;
+  overflow: hidden;
+  display: grid;
+  width: 100%;
+  height: 100%;
+}
+
+#container {
+  font-size: 20px;
+  padding: 25px;
+  color: white;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(0, 0, 0, .6);
+  height: 140px;
+  width: 300px;
+  border-radius: 5px;
+}
+
+#cashInput {
+background-color: rgba(0,0,0,.1);
+color:white;
+font-size:0.5em;
+}
+
+#propName {
+background-color: rgba(255,255,255,.7);
+font-size:0.7em;
+	
+	
+}
+
+#propName::-webkit-input-placeholder  {
+font-size:0.7em;
+	
+}
+
+#buttons{
+  font-size: 0.6em;
+  display: block;
+  align-items: center;
+  color:white;
+  margin-right:2;
+  margin-left:2;
+}
+#Title {
+  display: block;
+  text-align: center;
+  line-height: 50%;
+  font-size: 0.7em;
+	font-weight: 200;
+	margin-bottom: 15;
+}
+
+#button1{
+
+	 transition: all 0.5s ease; margin: 10px;width: 100px;border: 0;padding: 5px;text-transform: uppercase;font-weight: 100;color: white;letter-spacing: 1px;background: rgb(0 0 0 / 33%);border-bottom: 1px solid rgb(0 0 0 / 33%);box-shadow: 0 14px 25px rgb(0 0 0 / 16%);font-size:0.7em;
+}
+
+#button2{
+	
+	 transition: all 0.5s ease; margin: 10px;width: 100px;border: 0;padding: 5px;text-transform: uppercase;font-weight: 100;color: white;letter-spacing: 1px;background: rgb(0 0 0 / 33%);border-bottom: 1px solid rgb(0 0 0 / 33%);box-shadow: 0 14px 25px rgb(0 0 0 / 16%);font-size:0.7em;
+}
+
+#buttons button:hover{
+	border-color: white;
+}
+
+::-webkit-scrollbar-track
+{
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
+  background-color: rgb(0, 0, 0, .3);
+}
+
+::-webkit-scrollbar
+{
+  width: 12px;
+  background-color:  rgb(255, 255, 255, .4);
+}
+
+::-webkit-scrollbar-thumb
+{
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+  background-color: #555;
+}
+
+.box {
+  font-size: 20px;
+  padding: 20px 50px;
+  width: 40%;
+  min-height: 40%;
+  position: relative;
+  height: auto;
+  color: white;
+  background-color: rgb(0, 0, 0, .6);
+  border-radius: 5px;
+  margin: auto;
+}
+
+.box h2 {display: block;width: 100%;text-align: center;font-weight: 100;text-transform:  uppercase;letter-spacing: 1.5px;font-size: 24px;}
+.items { width: 100%; padding: 10px; display: flex; justify-content: space-around; flex-wrap: flex; }
+.items ul {width: 45%;height: 270px;background: rgb(0 0 0 / 32%);overflow-y: scroll;padding: 10px;list-style-type: none;}
+.items ul li {transition: all 0.2s ease;padding: 3px 7px;border: 1px solid transparent;margin-top: 5px;font-size: 11px;}
+.items ul li:hover { background: rgb(255 255 255 / 7%); }
+* { user-select: none; }
+
+.active {background: rgb(255 255 255 / 24%);border-color: rgb(255 255 255 / 25%) !important;}
+
+.options {width: 80%;margin: 0 auto;text-align: center;display: flex;justify-content: center;}
+.options button { transition: all 0.5s ease; margin: 10px;width: 150px;border: 0;padding: 5px;text-transform: uppercase;font-weight: 100;color: white;letter-spacing: 1px;background: rgb(0 0 0 / 33%);border-bottom: 1px solid rgb(0 0 0 / 33%);box-shadow: 0 14px 25px rgb(0 0 0 / 16%);font-size:0.7em;}
+.options button:hover { border-color: white; }
+
+.split-overlay {width: 100%;height: 100%;position: absolute;background: rgb(0 0 0 / 32%);display: grid; display: none; }
+.split-overlay input { margin: auto; border-radius: 5px; background: rgb(0 0 0 / 62%); color: whitesmoke; border: none; padding: 5px; }
+input:focus { outline: none; }
+
+.inventory-title {position: absolute;left: 140px;top: 70px;font-weight: 200;font-size: 15px;}
+.bank-title {position: absolute;right: 150px;top: 70px;font-weight: 200;font-size: 15px;}
+#maxQ {width: 100%;text-align: center;font-weight: 500;font-size: 15px;letter-spacing: 2px;}

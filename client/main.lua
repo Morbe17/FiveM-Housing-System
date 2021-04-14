@@ -36,7 +36,7 @@ RegisterCommand("createProperty", function(source, args, rawCommand)
 
     TriggerServerEvent("properties:CreateNewProperty", type, interiorId, location, price)
   
-end, false)
+end, true)
 
 TriggerEvent('chat:addSuggestion', '/createProperty', "Create a new property where you're standing!", {
     { name="Property Type", help="1 for houses/apartments, 2 for businesses, 3 for government buildings" },

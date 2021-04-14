@@ -52,4 +52,4 @@ Resources: `bob74_ipl` and 'base_events' These should be default FiveM resources
     'storeItem',
     'removeItem',
     'doesPropertyHasItem'
-    ```
+    

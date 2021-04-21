@@ -1,4 +1,5 @@
 display = false
+resName = "properties"
 
 RegisterNUICallback("exit", function(data)
     SetDisplay("propertyName", false, false)
@@ -43,7 +44,7 @@ RegisterNUICallback("grabPropertyName", function(data)
     SetDisplay("propertyName", false, nil)
 end)
 
-RegisterKeyMapping('+getInventory', 'Open House Inventory', 'keyboard', 'F3')
+RegisterKeyMapping('+getInventory', 'Open House Inventory', 'keyboard', Config.HotKeys.StorageKey)
 
 function isAWeapon(itemName)
     if string.len(itemName) >= 5 then

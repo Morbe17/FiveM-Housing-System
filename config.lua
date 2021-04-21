@@ -14,6 +14,7 @@ Config.Framework = 2 -- 1 means Standalone, 2 means ESX, 3 means vRP[ONLY ESX SU
 Config.RealStateScript = false
 Config.FixPositionOfStorage = false
 Config.FixPositionOfWardrobe = false
+Config.EnableStorage = true
 
 Config.Leng = "EN"
 Config.MultiCharESX = false

@@ -183,7 +183,7 @@ splitItem = (quantity) => {
         }
         var index = inventoryItems.findIndex((el) => el.id === selectedItem);
 
-        $.post('https://properties/sDepositItem', JSON.stringify({
+        $.post('https://properties/sDepositItemSplit', JSON.stringify({
             isInventory,
             quantity
         }));

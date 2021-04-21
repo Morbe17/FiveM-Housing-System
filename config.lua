@@ -31,3 +31,4 @@ Config.DefaultCapacity = 20 -- Default Storage Capacity
 Config.HotKeys = {}
 Config.HotKeys.ActionKey = "H"
 Config.HotKeys.LockKey = "L"
+Config.HotKeys.StorageKey = "F3"

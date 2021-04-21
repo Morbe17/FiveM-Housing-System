@@ -10,14 +10,18 @@ end)
 RegisterKeyMapping('+getInventory', 'Open House Inventory', 'keyboard', Config.HotKeys.StorageKey)
 
 RegisterCommand("+getInventory", function()
-    if playerInsideInterior then
-        TriggerServerEvent("properties:requestServerInventories")
+    if Config.EnableStorage then
+        if playerInsideInterior then
+            TriggerServerEvent("properties:requestServerInventories")
+        end
     end
 end)
 
 RegisterCommand("-getInventory", function()
-    SetDisplay("propertyName", false, false)
-    SetDisplay("propertyInventory", false, false)
+    if Config.EnableStorage then
+        SetDisplay("propertyName", false, false)
+        SetDisplay("propertyInventory", false, false)
+    end
 end)
 
 RegisterNetEvent("properties:sendInventoryData")

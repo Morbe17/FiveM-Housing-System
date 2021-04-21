@@ -19,6 +19,13 @@ RegisterNUICallback("sDepositItem", function(data)
 
     TriggerServerEvent("properties:depositItem", data.isInventory, tonumber(amount))
 end)
+
+RegisterNUICallback("sDepositItemSplit", function(data)
+    local amount = data.quantity
+
+    TriggerServerEvent("properties:depositItem", data.isInventory, tonumber(amount))
+end)
+
 RegisterNUICallback("sWithdrawItem", function(data)
   local amount = data.quantity
 

@@ -12,6 +12,11 @@ AddEventHandler("properties:loadProperties", function(secKey)
     activeProperties = {}
     local properties = MySQL.Sync.fetchAll("SELECT * FROM properties", {})
 
+    if properties == nil then
+      properties = {}
+      print('^3[Resmurf Properties System]^0 WARNING, No properties table were found or some other error may have ocurred, please make sure to start this script after your mysql-async. You might want to restart the resource.')
+    end
+
     for k, v in pairs(properties) do
       --Citizen.Wait(0)
       activeProperties[tonumber(v.id)] = {

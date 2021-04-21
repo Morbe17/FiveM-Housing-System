@@ -23,6 +23,10 @@ end)
 RegisterNUICallback("sDepositItemSplit", function(data)
     local amount = data.quantity
 
+    if isAWeapon(data.isInventory.name) then
+        returnError("You cannot split weapons!")
+    end
+
     TriggerServerEvent("properties:depositItem", data.isInventory, tonumber(amount))
 end)
 
@@ -40,3 +44,13 @@ RegisterNUICallback("grabPropertyName", function(data)
 end)
 
 RegisterKeyMapping('+getInventory', 'Open House Inventory', 'keyboard', 'F3')
+
+function isAWeapon(itemName)
+    if string.len(itemName) >= 5 then
+        local identificator = string.sub(itemName, 1, 6)
+        if identificator == "WEAPON" then return true
+        else return false
+        end
+    else return false
+    end
+end

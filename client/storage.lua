@@ -7,7 +7,7 @@ Citizen.CreateThread(function()
     end
 end)
 
-RegisterKeyMapping('+getInventory', 'Open House Inventory', 'keyboard', 'F3')
+RegisterKeyMapping('+getInventory', 'Open House Inventory', 'keyboard', Config.HotKeys.StorageKey)
 
 RegisterCommand("+getInventory", function()
     if playerInsideInterior then

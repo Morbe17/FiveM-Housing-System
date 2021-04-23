@@ -139,7 +139,6 @@ deposit = () => {
         var itemData = inventoryItems.find((el) => el.id === selectedItem);
 
        // var itemData = getItemFromItemTempId(selectedItem, inventoryItems)
-        console.log(itemData)
 
         if (itemData) {
 

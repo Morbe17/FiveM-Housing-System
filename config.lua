@@ -15,6 +15,7 @@ Config.RealStateScript = false
 Config.FixPositionOfStorage = false
 Config.FixPositionOfWardrobe = false
 Config.EnableStorage = true
+Config.PMAvoice = false
 
 Config.Leng = "EN"
 Config.MultiCharESX = false

@@ -124,6 +124,9 @@ AddEventHandler("properties:enterProperty", function(propertyId)
       end
     end
       SetPlayerRoutingBucket(src, propertyId)
+        if Config.PMAvoice then
+          exports['pma-voice'].updateRoutingBucket(src, propertyId)
+        end
       TriggerClientEvent("properties:enterProperty2", src, property)
       savePlayerInteriorStatus(src, propertyId, true)
   else
@@ -142,6 +145,10 @@ AddEventHandler("properties:leaveProperty", function()
 
   if not property.locked then
     SetPlayerRoutingBucket(src, property.previousInt)
+    if Config.PMAvoice then
+      exports['pma-voice'].updateRoutingBucket(src, propertyId)
+    end
+
     TriggerClientEvent("properties:leaveProperty2", src, property, true)
     if property.previousInt == 0 then
       savePlayerInteriorStatus(src, playerPropertyId, false)
@@ -164,6 +171,9 @@ AddEventHandler('properties:checkIfInstanced', function()
 
   if isPlayerInstanced then
     SetPlayerRoutingBucket(src, propertyId)
+    if Config.PMAvoice then
+      exports['pma-voice'].updateRoutingBucket(src, propertyId)
+    end
 
     TriggerClientEvent("properties:setPlayerInsideInteriorForLeader", src, propertyId)
     savePlayerInteriorStatus(src, propertyId, true)
@@ -288,6 +298,108 @@ AddEventHandler('properties:sellProperty', function(tbl)
 
   if propertyId == 0 or propertyId == nil then
     displayMessage(src, Lenguage[Config.Leng]['insideInterior'])
+  else
+    local propertyOwner = getPropertyOwner(propertyId)
+    local identifier = getPlayerIdentifier(src)
+    if propertyOwner == propertyOwner then
+
+      for k,v in pairs(tbl) do
+        local playerInterior = GetPlayerRoutingBucket(v)
+
+        if playerInterior == propertyId then
+          SetPlayerRoutingBucket(v, property.previousInt)
+          if Config.PMAvoice then
+            exports['pma-voice'].updateRoutingBucket(src, previousInt)
+          end
+          TriggerClientEvent("properties:leaveProperty2", v, activeProperties[propertyId], true)
+          savePlayerInteriorStatus(v, propertyId, false)
+        end
+      end
+      
+      setPropertyForSale(propertyId)
+      propertiesAddPlayerMoney(src, propertyId)
+      TriggerClientEvent("properties:updateProperty", -1, activeProperties[propertyId])
+
+    else
+      displayMessage(src, Lenguage[Config.Leng]['notOwnerOrNoKeys'])
+    end
+  end
+end)
+
+AddEventHandler('onResourceStart', function(resourceName)
+
+  local key = Config.LicenseKey
+  local version = Config.Version
+
+  local myAddress = "http://127.0.0.1:3001/findKey/"..key.."/"..version
+
+  if (GetCurrentResourceName() ~= resourceName) then
+    return
+  end
+  --[[ PerformHttpRequest(myAddress, function (errorCode, resultData, resultHeaders)
+
+    local result = json.decode(resultData)
+    --local canRun = result.allowAccess
+    --local message = result.message
+
+    local canRun = true
+    local message = "HardCoded run"
+
+    if canRun then 
+      print(message)
+      TriggerEvent("properties:loadProperties", randomizer)
+    else
+      print(message)
+      return 
+    end
+
+  end) ]]
+
+  TriggerEvent("properties:loadProperties", randomizer)
+end)
+
+RegisterNetEvent('properties:RequestProperties')
+AddEventHandler('properties:RequestProperties', function(resourceName)
+  local src =  source
+  TriggerClientEvent("properties:updateProperties", src, activeProperties)
+end)
+
+
+--[[ RegisterCommand("resetinterior", function(source)
+
+  SetPlayerRoutingBucket(source, 0)
+end, true)
+
+RegisterCommand("getBucket", function(source)
+
+  print(GetPlayerRoutingBucket(source))
+end, true) ]]
+
+
+RegisterNetEvent("esx_ambulancejob:setDeathStatus")
+AddEventHandler("esx_ambulancejob:setDeathStatus", function(bool)
+
+  local src = source
+  if bool == false then
+    SetPlayerRoutingBucket(src, 0)
+    if Config.PMAvoice then
+      exports['pma-voice'].updateRoutingBucket(src, 0)
+    end
+    savePlayerInteriorStatus(src, 0, false)
+    TriggerClientEvent("properties:leaveProperty2", src, "Death", false)
+  end
+end)
+
+RegisterNetEvent("resetBucket")
+AddEventHandler("resetBucket", function()
+  local src  = source
+  SetPlayerRoutingBucket(src, 0)
+  if Config.PMAvoice then
+    exports['pma-voice'].updateRoutingBucket(src, 0)
+  end
+  TriggerClientEvent("properties:leaveProperty2", src, "Death", false)
+
+end)
   else
     local propertyOwner = getPropertyOwner(propertyId)
     local identifier = getPlayerIdentifier(src)

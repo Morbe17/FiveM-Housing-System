@@ -93,8 +93,12 @@ AddEventHandler("properties:buyProperty", function(propertyId, name)
       if playerMoney >= property.salePrice then
         local removeMoney = propertiesRemovePlayerMoney(src, property.salePrice)
         if removeMoney then
-          setPropertyOwner(src, propertyId, name)
-          displayMessage(src,Lenguage[Config.Leng]['boughtProperty'])
+            if name then
+              setPropertyOwner(src, propertyId, name)
+              displayMessage(src,Lenguage[Config.Leng]['boughtProperty'])
+             else
+              displayError(src, Lenguage[Config.Leng]['noName'])
+             end
         end
       else
         displayError(src, Lenguage[Config.Leng]['noMoney'])

@@ -19,7 +19,8 @@ Lenguage["ES"] = {
     ["onlyBusiness"] = "Esta propiedad debe de ser un negocio.",
     ["noNegativeFee"] = "No puedes utilizar montos negativos.",
     ["missingTheAmount"] = "Debes de enviar un fee.",
-    ["onlyNumbers"] = "Solo puedes utilizar numeros!"
+    ["onlyNumbers"] = "Solo puedes utilizar numeros!",
+    ["noName"] = "Debes llenar el campo del nombre"
 }
 
 Lenguage["EN"] = {
@@ -41,7 +42,8 @@ Lenguage["EN"] = {
     ["onlyBusiness"] = "This property must be a business.",
     ["noNegativeFee"] = "You cannot use negative values.",
     ["missingTheAmount"] = "You must fill the amount.",
-    ["onlyNumbers"] = "You can only use numbers!"
+    ["onlyNumbers"] = "You can only use numbers!",
+    ["noName"] = "You must fill the name field."
 }
 
 Lenguage["FI"] = {
@@ -63,5 +65,6 @@ Lenguage["FI"] = {
     ["onlyBusiness"] = "Tämän kiinteistön on oltava yritys.",
     ["noNegativeFee"] = "Et voi käyttää negatiivisia arvoja.",
     ["missingTheAmount"] = "Sinun täytyy asettaa summa.",
-    ["onlyNumbers"] = "Voit käyttää vain numeroita!"
+    ["onlyNumbers"] = "Voit käyttää vain numeroita!",
+    ["noName"] = "You must fill the name field."
 }
